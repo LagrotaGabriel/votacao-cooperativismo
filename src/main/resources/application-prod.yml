@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate.ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: false
+logging:
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    br.com.compras: INFO
+    org.hibernate: INFO
+    org.springframework.security: INFO
