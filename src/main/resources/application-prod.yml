@@ -6,10 +6,14 @@ spring:
     properties:
       hibernate:
         generate_statistics: false
+  h2:
+    console:
+      path: /h2
+      enabled: false
 logging:
   level:
     org.springframework.web: INFO
     guru.springframework.controllers: INFO
-    br.com.compras: INFO
+    br.com.votacao: INFO
     org.hibernate: INFO
     org.springframework.security: INFO
