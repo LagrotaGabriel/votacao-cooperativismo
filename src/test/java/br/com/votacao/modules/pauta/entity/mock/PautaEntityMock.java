@@ -31,6 +31,11 @@ public class PautaEntityMock {
         return builder;
     }
 
+    public PautaEntityMock ComDataDeExpiracaoNoFuturo() {
+        this.pautaEntity.setDataHoraExpiracao(LocalDateTime.now().plusMinutes(10L));
+        return this;
+    }
+
     public PautaEntity build() {
         return pautaEntity;
     }
