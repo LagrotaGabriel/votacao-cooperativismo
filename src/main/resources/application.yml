@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  application:
+    name: SRV-VOTACAO
+  jpa:
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:${DB_URL}?useTimezone=true&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+logging:
+  config:
+    src/main/resources/logback.xml
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /documentacao-api
+    operationsSorter: method
+    tagsSorter: alpha
+swagger:
+  username: ${SWAGGER_USERNAME:root}
+  password: ${SWAGGER_PASSWORD:123456}
