@@ -9,6 +9,10 @@ spring:
       hibernate:
         generate_statistics: true
         format_sql: true
+  h2:
+    console:
+      path: /h2
+      enabled: false
 logging:
   level:
     org.springframework.web: INFO

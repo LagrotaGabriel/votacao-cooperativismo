@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      path: /h2
+      enabled: true
+logging:
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    br.com.votacao: INFO
+    org.hibernate: INFO
+    org.springframework.security: INFO
