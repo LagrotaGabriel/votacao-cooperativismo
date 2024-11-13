@@ -1,10 +1,10 @@
-package br.com.votacao_cooperativismo;
+package br.com.votacao;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VotacaoCooperativismoApplicationTests {
+class VotacaoApplicationTests {
 
 	@Test
 	void contextLoads() {
