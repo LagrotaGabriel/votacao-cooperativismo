@@ -43,7 +43,9 @@ class CadastroPautaControllerTest {
                 );
 
         Assertions.assertEquals(
-                "",
+                "<201 CREATED Created,CadastroPautaResponse[id=74bcd515-655c-4def-8dc8-3329ccbdf62e, " +
+                        "titulo=Legalização do @Data, descricao=Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API, " +
+                        "dataHoraexpiracaoPauta=2024-11-13T15:37],[]>",
                 respostaServico.toString()
         );
 
