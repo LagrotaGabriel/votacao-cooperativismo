@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "c1ab09db-f16a-45bf-8ba1-24ba46c133e1",
+		"name": "Pauta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19701119"
+	},
+	"item": [
+		{
+			"name": "Cadastro",
+			"item": [
+				{
+					"name": "Cria nova pauta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Legalização do @Data\",\r\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\", \r\n    \"duracaoEmMinutos\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/srv-votacao/v1/pauta",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"srv-votacao",
+								"v1",
+								"pauta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Legalização do @Data\",\r\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/pauta",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"pauta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 14:50:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"7f7199fc-cc6a-4de4-b009-f83f33432d49\",\n    \"titulo\": \"Legalização do @Data\",\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\",\n    \"dataHoraexpiracaoPauta\": \"2024-11-13T11:51:36.0870093\"\n}"
+						},
+						{
+							"name": "201 - Sucesso (2)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Legalização do @Data\",\r\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\", \r\n    \"duracaoEmMinutos\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/pauta",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"pauta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 14:55:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"b10c95c8-7913-458a-8585-fa2dc3c92308\",\n    \"titulo\": \"Legalização do @Data\",\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\",\n    \"dataHoraexpiracaoPauta\": \"2024-11-13T12:00:16.9901398\"\n}"
+						},
+						{
+							"name": "400 - Dados não informados",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/pauta",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"pauta"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 14:47:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"titulo\": \"O título da pauta deverá ser informado\",\n    \"descricao\": \"A descrição da pauta deverá ser informada\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
