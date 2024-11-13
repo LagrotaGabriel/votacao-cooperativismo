@@ -1,13 +1,13 @@
-package br.com.votacao_cooperativismo;
+package br.com.votacao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VotacaoCooperativismoApplication {
+public class VotacaoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VotacaoCooperativismoApplication.class, args);
+		SpringApplication.run(VotacaoApplication.class, args);
 	}
 
 }
