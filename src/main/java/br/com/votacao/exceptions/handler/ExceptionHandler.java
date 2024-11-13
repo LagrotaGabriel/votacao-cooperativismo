@@ -2,6 +2,10 @@ package br.com.votacao.exceptions.handler;
 
 import br.com.votacao.exceptions.models.StandartError;
 import br.com.votacao.modules.associado.actions.cadastro.services.validator.exceptions.CpfDoAssociadoJaExisteException;
+import br.com.votacao.modules.voto.actions.cadastro.services.core.exceptions.AssociadoNaoEncontradoException;
+import br.com.votacao.modules.voto.actions.cadastro.services.core.exceptions.PautaNaoEncontradaException;
+import br.com.votacao.modules.voto.actions.cadastro.services.validator.exceptions.PautaExpiradaException;
+import br.com.votacao.modules.voto.actions.cadastro.services.validator.exceptions.VotoDuplicadoDoAssociadoNaPautaException;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
@@ -27,6 +31,62 @@ public class ExceptionHandler {
                 .localDateTime(LocalDateTime.now().toString())
                 .status(400)
                 .error(cpfDoAssociadoJaExisteException.getMessage())
+                .path(req.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standartError);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(PautaExpiradaException.class)
+    public ResponseEntity<StandartError> pautaExpiradaExceptionHandler(HttpServletRequest req,
+                                                                       PautaExpiradaException pautaExpiradaException) {
+
+        StandartError standartError = StandartError.builder()
+                .localDateTime(LocalDateTime.now().toString())
+                .status(400)
+                .error(pautaExpiradaException.getMessage())
+                .path(req.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standartError);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(PautaNaoEncontradaException.class)
+    public ResponseEntity<StandartError> pautaNaoEncontradaExceptionHandler(HttpServletRequest req,
+                                                                            PautaNaoEncontradaException pautaNaoEncontradaException) {
+
+        StandartError standartError = StandartError.builder()
+                .localDateTime(LocalDateTime.now().toString())
+                .status(404)
+                .error(pautaNaoEncontradaException.getMessage())
+                .path(req.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standartError);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(AssociadoNaoEncontradoException.class)
+    public ResponseEntity<StandartError> pautaNaoEncontradaExceptionHandler(HttpServletRequest req,
+                                                                            AssociadoNaoEncontradoException associadoNaoEncontradoException) {
+
+        StandartError standartError = StandartError.builder()
+                .localDateTime(LocalDateTime.now().toString())
+                .status(404)
+                .error(associadoNaoEncontradoException.getMessage())
+                .path(req.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standartError);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(VotoDuplicadoDoAssociadoNaPautaException.class)
+    public ResponseEntity<StandartError> votoDuplicadoDoAssociadoNaPautaExceptionHandler(HttpServletRequest req,
+                                                                                         VotoDuplicadoDoAssociadoNaPautaException votoDuplicadoDoAssociadoNaPautaException) {
+
+        StandartError standartError = StandartError.builder()
+                .localDateTime(LocalDateTime.now().toString())
+                .status(400)
+                .error(votoDuplicadoDoAssociadoNaPautaException.getMessage())
                 .path(req.getRequestURI())
                 .build();
 

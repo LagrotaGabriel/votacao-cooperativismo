@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "0eb1dc98-b8ca-4706-99ac-181aece73f3a",
+		"name": "Votacao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19701119"
+	},
+	"item": [
+		{
+			"name": "Cadastro",
+			"item": [
+				{
+					"name": "Cria novo voto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"voto\": \"NAOO\", \r\n    \"idAssociado\": \"d636d94e-858c-467a-847d-e28a3a25a4ac\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/srv-votacao/v1/voto/8429be2a-fd36-4d30-ac69-d79661e42eb4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"srv-votacao",
+								"v1",
+								"voto",
+								"8429be2a-fd36-4d30-ac69-d79661e42eb4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - Pauta expirada",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voto\": \"SIM\", \r\n    \"idAssociado\": \"191b662b-6f31-4459-8b63-a4f55a75182e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/voto/b10c95c8-7913-458a-8585-fa2dc3c92308",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"voto",
+										"b10c95c8-7913-458a-8585-fa2dc3c92308"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 20:32:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"localDateTime\": \"2024-11-13T17:32:54.806502\",\n    \"status\": 400,\n    \"error\": \"Não é possível realizar a votação em uma pauta que já expirou\",\n    \"path\": \"/api/srv-votacao/v1/voto/b10c95c8-7913-458a-8585-fa2dc3c92308\"\n}"
+						},
+						{
+							"name": "201 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voto\": \"SIM\", \r\n    \"idAssociado\": \"191b662b-6f31-4459-8b63-a4f55a75182e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/voto/f2ac6801-6cad-4408-b002-31d00314f493",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"voto",
+										"f2ac6801-6cad-4408-b002-31d00314f493"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 20:39:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idVoto\": \"61747104-7a96-4a33-95e3-8b7a1c2fafff\",\n    \"quantidadeDeVotosComputados\": 1\n}"
+						},
+						{
+							"name": "400 - Voto do associado duplicado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voto\": \"SIM\", \r\n    \"idAssociado\": \"191b662b-6f31-4459-8b63-a4f55a75182e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/voto/f2ac6801-6cad-4408-b002-31d00314f493",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"voto",
+										"f2ac6801-6cad-4408-b002-31d00314f493"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 20:39:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"localDateTime\": \"2024-11-13T17:39:31.517402800\",\n    \"status\": 400,\n    \"error\": \"Um associado não pode votar mais de uma vez em uma pauta\",\n    \"path\": \"/api/srv-votacao/v1/voto/f2ac6801-6cad-4408-b002-31d00314f493\"\n}"
+						},
+						{
+							"name": "404 - Nenhuma pauta encontrada",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voto\": \"SIM\", \r\n    \"idAssociado\": \"191b662b-6f31-4459-8b63-a4f55a75182e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/voto/f2ac6801-6cad-4408-b002-31d00314f492",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"voto",
+										"f2ac6801-6cad-4408-b002-31d00314f492"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 20:39:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"localDateTime\": \"2024-11-13T17:39:55.373358800\",\n    \"status\": 404,\n    \"error\": \"Nenhuma pauta foi encontrada com o id informado\",\n    \"path\": \"/api/srv-votacao/v1/voto/f2ac6801-6cad-4408-b002-31d00314f492\"\n}"
+						},
+						{
+							"name": "404 - Nenhum associado encontrado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voto\": \"SIM\", \r\n    \"idAssociado\": \"191b662b-6f31-4459-8b63-a4f55a75182f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/voto/8429be2a-fd36-4d30-ac69-d79661e42eb4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"voto",
+										"8429be2a-fd36-4d30-ac69-d79661e42eb4"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Nov 2024 20:40:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"localDateTime\": \"2024-11-13T17:40:58.226611900\",\n    \"status\": 404,\n    \"error\": \"Nenhum associado foi encontrado com o id informado\",\n    \"path\": \"/api/srv-votacao/v1/voto/8429be2a-fd36-4d30-ac69-d79661e42eb4\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
