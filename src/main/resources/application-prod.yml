@@ -1,3 +1,11 @@
+spring:
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate.ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: false
 logging:
   level:
     org.springframework.web: INFO
