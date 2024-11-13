@@ -39,7 +39,7 @@ public class SwaggerConfiguration {
         return GroupedOpenApi.builder()
                 .group("votacoes")
                 .displayName("VOTACOES")
-                .pathsToMatch("/api/srv-votacao/v1/votacao/**")
+                .pathsToMatch("/api/srv-votacao/v1/voto/**")
                 .build();
     }
 }
