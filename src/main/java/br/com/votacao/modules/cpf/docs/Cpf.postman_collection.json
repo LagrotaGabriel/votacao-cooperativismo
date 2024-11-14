@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "87cfe438-a8c8-42f9-855e-9b6e897dc09b",
+		"name": "Cpf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19701119"
+	},
+	"item": [
+		{
+			"name": "Validacao",
+			"item": [
+				{
+					"name": "Realiza validação de CPF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"472.535.279-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/srv-votacao/v1/cpf/validacao",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"srv-votacao",
+								"v1",
+								"cpf",
+								"validacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Voto permitido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cpf\": \"472.535.279-22\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/cpf/validacao",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"cpf",
+										"validacao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Nov 2024 14:32:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ABLE_TO_VOTE\",\n    \"dataHoraChamada\": \"2024-11-14T11:32:06.0604742\"\n}"
+						},
+						{
+							"name": "404 - Voto não permitido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cpf\": \"472.535.279-22\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/cpf/validacao",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"cpf",
+										"validacao"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Nov 2024 14:32:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNABLE_TO_VOTE\",\n    \"dataHoraChamada\": \"2024-11-14T11:32:21.6130239\"\n}"
+						},
+						{
+							"name": "400 - CPF Inválido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cpf\": \"472.535.27922\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/cpf/validacao",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"cpf",
+										"validacao"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Nov 2024 14:32:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cpf\": \"O CPF informado é inválido\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
