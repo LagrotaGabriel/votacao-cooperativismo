@@ -5,6 +5,8 @@ import br.com.votacao.modules.voto.entity.VotoEntity;
 import br.com.votacao.modules.voto.entity.enums.TipoVotoEnum;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class VotoEntityMock {
@@ -27,6 +29,14 @@ public class VotoEntityMock {
         builder.votoEntity = voto;
 
         return builder;
+    }
+
+    public List<VotoEntity> buildList() {
+
+        List<VotoEntity> votoEntityList = new ArrayList<>();
+        votoEntityList.add(this.votoEntity);
+
+        return votoEntityList;
     }
 
     public VotoEntity build() {
