@@ -3,7 +3,7 @@ package br.com.votacao.modules.voto.actions.cadastro.services.core.impl;
 import br.com.votacao.modules.associado.entity.AssociadoEntity;
 import br.com.votacao.modules.associado.entity.mock.AssociadoEntityMock;
 import br.com.votacao.modules.associado.repository.AssociadoRepository;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
 import br.com.votacao.modules.pauta.repository.PautaRepository;
 import br.com.votacao.modules.voto.actions.cadastro.dto.request.CadastroVotoRequest;

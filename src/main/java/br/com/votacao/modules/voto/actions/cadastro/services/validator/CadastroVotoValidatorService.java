@@ -1,6 +1,6 @@
 package br.com.votacao.modules.voto.actions.cadastro.services.validator;
 
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.voto.entity.VotoEntity;
 
 import java.time.LocalDateTime;

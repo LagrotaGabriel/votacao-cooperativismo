@@ -1,6 +1,6 @@
 package br.com.votacao.modules.voto.actions.cadastro.services.validator.impl;
 
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
 import br.com.votacao.modules.voto.actions.cadastro.services.validator.exceptions.PautaExpiradaException;
 import br.com.votacao.modules.voto.actions.cadastro.services.validator.exceptions.VotoDuplicadoDoAssociadoNaPautaException;
