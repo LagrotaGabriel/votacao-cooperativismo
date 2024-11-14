@@ -1,117 +1,133 @@
-# Votação
+# 🙋🏼 API de pautas e votações
 
-## Objetivo
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-No cooperativismo, cada associado possui um voto e as decisões são tomadas em assembleias, por votação. Imagine que você deve criar uma solução para dispositivos móveis para gerenciar e participar dessas sessões de votação.
-Essa solução deve ser executada na nuvem e promover as seguintes funcionalidades através de uma API REST:
+>Este projeto se trata um sistema de cadastro de pautas e votações desenvolvido em Java com Spring Boot. Ele utiliza uma arquitetura
+RESTful para implementar suas regras de negócio
 
-- Cadastrar uma nova pauta
-- Abrir uma sessão de votação em uma pauta (a sessão de votação deve ficar aberta por
-  um tempo determinado na chamada de abertura ou 1 minuto por default)
-- Receber votos dos associados em pautas (os votos são apenas 'Sim'/'Não'. Cada associado
-  é identificado por um id único e pode votar apenas uma vez por pauta)
-- Contabilizar os votos e dar o resultado da votação na pauta
+## Tópicos
 
-Para fins de exercício, a segurança das interfaces pode ser abstraída e qualquer chamada para as interfaces pode ser considerada como autorizada. A solução deve ser construída em java, usando Spring-boot, mas os frameworks e bibliotecas são de livre escolha (desde que não infrinja direitos de uso).
+- [📖 Histórias de usuário](#histórias-de-usuário)
+- [📋 Pré-requisitos](#pré-requisitos)
+- [✨ Variáveis de ambiente](#variáveis-de-ambiente)
+- [📜 UML](#uml)
+- [↪ Fluxo](#fluxo)
+- [🚀 Funcionalidades](#funcionalidades)
+- [📃 Swagger](#swagger)
+- [💻 Tecnologias utilizadas](#tecnologias-utilizadas)
+- [⌛ Funcionalidades futuras](#Implementações-futuras)
+- [▶ Execução local](#Execução-local)
+- [👨🏼‍💻 Desenvolvedor](#desenvolvedor)
 
-É importante que as pautas e os votos sejam persistidos e que não sejam perdidos com o restart da aplicação.
+## Histórias de usuário
 
-O foco dessa avaliação é a comunicação entre o backend e o aplicativo mobile. Essa comunicação é feita através de mensagens no formato JSON, onde essas mensagens serão interpretadas pelo cliente para montar as telas onde o usuário vai interagir com o sistema. A aplicação cliente não faz parte da avaliação, apenas os componentes do servidor. O formato padrão dessas mensagens será detalhado no anexo 1.
+Para desenvolver o projeto, o primeiro passo foi realizar a escrita de histórias do usuário. Detalhando, assim, 
+todas as funcionalidades que deveriam ser desenvolvidas para garantir uma boa documentação do código e progresso 
+organizado do fluxo de desenvolvimento
+ 
+> [História 1 - Criação de novo associado](https://github.com/LagrotaGabriel/votacao-cooperativismo/blob/main/src/main/resources/docs/historias/HISTORIA-1-CRIACAO_NOVO_ASSOCIADO.pdf)
+ 
+> [História 2 - Criação de nova pauta](https://github.com/LagrotaGabriel/votacao-cooperativismo/blob/main/src/main/resources/docs/historias/HISTORIA-2-CRIACAO_NOVA_PAUTA.pdf)
+ 
+> [História 3 - Registro de voto](https://github.com/LagrotaGabriel/votacao-cooperativismo/blob/main/src/main/resources/docs/historias/HISTORIA-3-REGISTRAR_VOTO.pdf)
+ 
+> [História 4 - Obter pautas paginadas](https://github.com/LagrotaGabriel/votacao-cooperativismo/blob/main/src/main/resources/docs/historias/HISTORIA-4-OBTER_PAUTAS.pdf)
 
-## Como proceder
+> [História 5 - Obter pautas por id](https://github.com/LagrotaGabriel/votacao-cooperativismo/blob/main/src/main/resources/docs/historias/HISTORIA-5-OBTER_PAUTA_POR_ID.pdf)
 
-Por favor, realize o FORK desse repositório e implemente sua solução no FORK em seu repositório GItHub, ao final, notifique da conclusão para que possamos analisar o código implementado.
+## Pré-requisitos
 
-Lembre de deixar todas as orientações necessárias para executar o seu código.
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-### Tarefas bônus
+- Você possui o `PostgreSQL` instalado em sua máquina
+- Você possui o `Java 17` instalado em sua máquina.
+- A porta `8070` não está sendo utilizada
+- Você criou um schema no PostgreSQL para a aplicação
+- Você configurou as [Variáveis de ambiente](#variáveis-de-ambiente) adequadamente em sua IDE
 
-- Tarefa Bônus 1 - Integração com sistemas externos
-  - Criar uma Facade/Client Fake que retorna aleátoriamente se um CPF recebido é válido ou não.
-  - Caso o CPF seja inválido, a API retornará o HTTP Status 404 (Not found). Você pode usar geradores de CPF para gerar CPFs válidos
-  - Caso o CPF seja válido, a API retornará se o usuário pode (ABLE_TO_VOTE) ou não pode (UNABLE_TO_VOTE) executar a operação. Essa operação retorna resultados aleatórios, portanto um mesmo CPF pode funcionar em um teste e não funcionar no outro.
+## Variáveis de ambiente
 
-```
-// CPF Ok para votar
-{
-    "status": "ABLE_TO_VOTE
-}
-// CPF Nao Ok para votar - retornar 404 no client tb
-{
-    "status": "UNABLE_TO_VOTE
-}
-```
+| Chave         | Exemplo                             | Descrição                                   |
+|---------------|-------------------------------------|---------------------------------------------|
+| DB_URL        | postgresql://localhost:5432/votacao | URL do banco de dados                       |
+| DB_USERNAME   | postgres                            | Nome de usuário de acesso ao banco de dados |
+| DB_PASSWORD   | 123                                 | Senha de acesso ao banco de dados           |
 
-Exemplos de retorno do serviço
+## UML
 
-### Tarefa Bônus 2 - Performance
+> Na UML abaixo, podemos ver como está disposto o mapeamento de entidades da aplicação
 
-- Imagine que sua aplicação possa ser usada em cenários que existam centenas de
-  milhares de votos. Ela deve se comportar de maneira performática nesses
-  cenários
-- Testes de performance são uma boa maneira de garantir e observar como sua
-  aplicação se comporta
+![](src/main/resources/docs/uml/UML.png)
 
-### Tarefa Bônus 3 - Versionamento da API
+## Fluxo
 
-○ Como você versionaria a API da sua aplicação? Que estratégia usar?
+> O fluxo da aplicação se trata basicamente do caminho que o usuário deverá trilhar para usufruir das 
+> funcionalidades da API
 
-## O que será analisado
+![](src/main/resources/docs/fluxo/fluxo.png)
 
-- Simplicidade no design da solução (evitar over engineering)
-- Organização do código
-- Arquitetura do projeto
-- Boas práticas de programação (manutenibilidade, legibilidade etc)
-- Possíveis bugs
-- Tratamento de erros e exceções
-- Explicação breve do porquê das escolhas tomadas durante o desenvolvimento da solução
-- Uso de testes automatizados e ferramentas de qualidade
-- Limpeza do código
-- Documentação do código e da API
-- Logs da aplicação
-- Mensagens e organização dos commits
+1. O usuário deve cadastrar um associado;
+2. O usuário deve cadastrar uma pauta;
+3. Utilizando a referência do associado e da pauta, o usuário pode realizar uma votação;
 
-## Dicas
+> Para visualização das regras de negócio dos processos do fluxo, indicado a leitura das 
+> [Histórias de usuário](#histórias-de-usuário)
 
-- Teste bem sua solução, evite bugs
-- Deixe o domínio das URLs de callback passiveis de alteração via configuração, para facilitar
-  o teste tanto no emulador, quanto em dispositivos fisicos.
-  Observações importantes
-- Não inicie o teste sem sanar todas as dúvidas
-- Iremos executar a aplicação para testá-la, cuide com qualquer dependência externa e
-  deixe claro caso haja instruções especiais para execução do mesmo
-  Classificação da informação: Uso Interno
+## Funcionalidades
 
-## Anexo 1
+:heavy_check_mark: `Cadastro de Associado:` A API possibilita o cadastro de Associados;
 
-### Introdução
+:heavy_check_mark: `Cadastro de Pauta:` A API possibilita o cadastro de Pautas;
 
-A seguir serão detalhados os tipos de tela que o cliente mobile suporta, assim como os tipos de campos disponíveis para a interação do usuário.
+:heavy_check_mark: `Cadastro de Votos:` A API possibilita o cadastro de votos utilizando os dados de pautas e
+associados previamente cadastrados;
 
-### Tipo de tela – FORMULARIO
+:heavy_check_mark: `Obtenção paginada de pautas:` A API possibilita a obtenção paginada de pautas.
 
-A tela do tipo FORMULARIO exibe uma coleção de campos (itens) e possui um ou dois botões de ação na parte inferior.
+:heavy_check_mark: `Obtenção de pautas por id:` A API possibilita a obtenção de pautas por id.
 
-O aplicativo envia uma requisição POST para a url informada e com o body definido pelo objeto dentro de cada botão quando o mesmo é acionado. Nos casos onde temos campos de entrada
-de dados na tela, os valores informados pelo usuário são adicionados ao corpo da requisição. Abaixo o exemplo da requisição que o aplicativo vai fazer quando o botão “Ação 1” for acionado:
+## Swagger
 
-```
-POST http://seudominio.com/ACAO1
-{
-    “campo1”: “valor1”,
-    “campo2”: 123,
-    “idCampoTexto”: “Texto”,
-    “idCampoNumerico: 999
-    “idCampoData”: “01/01/2000”
-}
-```
+> Para acessar o swagger basta acessar o endpoint `/documentacao-api` e navegar entre os tópicos Associados, CPF's, 
+> Pautas e votações
 
-Obs: o formato da url acima é meramente ilustrativo e não define qualquer padrão de formato.
+## Tecnologias Utilizadas
 
-### Tipo de tela – SELECAO
+- Java 17
+- Spring Boot 3.2.11
+- Swagger
+- JPA
+- PostgreSQL (Dev, Prod)
+- H2 (Test)
+- Postman
+- Lombok
+- J Unit
+- Intellij
+- Feign
 
-A tela do tipo SELECAO exibe uma lista de opções para que o usuário.
+## Implementações futuras
 
-O aplicativo envia uma requisição POST para a url informada e com o body definido pelo objeto dentro de cada item da lista de seleção, quando o mesmo é acionado, semelhando ao funcionamento dos botões da tela FORMULARIO.
+Futuramente a aplicação deverá possuir as seguintes implementações:
+- Melhorias de coberturas de testes
+- Cache
+- Resiliência
+- Preparar pipeline para deploy em cloud
 
-# desafio-votacao
+## Execução local
+
+1. Para clonar o projeto basta utilizar o git clone com a url:<br>https://github.com/LagrotaGabriel/votacao-cooperativismo.git
+
+2. A porta padrão da aplicação está definida em 8070. Então as requisições deverão apontar para essa porta  
+
+3. Cada módulo de aplicação `Associados, Pautas, Votações e CPF` possui um diretório "docs". Neste diretório está disponível a
+   collection do postman de cada um dos módulos da aplicação. As collections já possuem requisições de sucesso e de erro
+   de exemplo  
+
+4. Extremamente necessário que os [pré-requisitos](#pré-requisitos) sejam atendidos
+
+## Desenvolvedor
+
+[<img src="https://avatars.githubusercontent.com/u/95034068?s=400&u=e6564e30a8bb550bd02aac95951f4e0dff78fc48&v=4" width=115><br><sub>Gabriel Lagrota</sub>](https://github.com/LagrotaGabriel)
