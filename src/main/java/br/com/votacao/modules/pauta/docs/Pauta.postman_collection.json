@@ -299,7 +299,124 @@
 				},
 				{
 					"name": "Por id",
-					"item": []
+					"item": [
+						{
+							"name": "Obtem pauta por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/api/srv-votacao/v1/pauta/f2ac6801-6cad-4408-b002-31d00314f493",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"api",
+										"srv-votacao",
+										"v1",
+										"pauta",
+										"f2ac6801-6cad-4408-b002-31d00314f493"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/api/srv-votacao/v1/pauta/f2ac6801-6cad-4408-b002-31d00314f493",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"api",
+												"srv-votacao",
+												"v1",
+												"pauta",
+												"f2ac6801-6cad-4408-b002-31d00314f493"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 11:39:53 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"titulo\": \"Legalização do @Data\",\n    \"descricao\": \"Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API\",\n    \"status\": \"Encerrada\",\n    \"quantidadeVotosSim\": 1,\n    \"quantidadesVotosNao\": 0,\n    \"dataHoraCriacao\": \"2024-11-13T17:39:09.705507\",\n    \"dataHoraExpiracao\": \"2024-11-13T17:44:09.705507\",\n    \"votos\": [\n        {\n            \"tipoVoto\": \"Sim\",\n            \"dataHoraVoto\": \"2024-11-13T17:39:18.053971\",\n            \"nomeAssociado\": \"Gabriel Lagrota\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "404 - Nenhuma pauta encontrada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/api/srv-votacao/v1/pauta/f2ac6801-6cad-4408-b002-31d00314f494",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"api",
+												"srv-votacao",
+												"v1",
+												"pauta",
+												"f2ac6801-6cad-4408-b002-31d00314f494"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 11:40:05 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"localDateTime\": \"2024-11-14T08:40:05.779148800\",\n    \"status\": 404,\n    \"error\": \"Nenhuma pauta foi encontrada através do ID informado\",\n    \"path\": \"/api/srv-votacao/v1/pauta/f2ac6801-6cad-4408-b002-31d00314f494\"\n}"
+								}
+							]
+						}
+					]
 				}
 			]
 		}
