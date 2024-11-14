@@ -99,7 +99,7 @@ public class ObtencaoPaginadaPautaMapperServiceImpl implements ObtencaoPaginadaP
         return itemPautaPageResponseList;
     }
 
-    private List<VotosPautaPageResponse> geraListaDeVotos(List<VotoEntity> votos) {
+    public List<VotosPautaPageResponse> geraListaDeVotos(List<VotoEntity> votos) {
 
         List<VotosPautaPageResponse> votosPautaPageResponseList = new ArrayList<>();
 
