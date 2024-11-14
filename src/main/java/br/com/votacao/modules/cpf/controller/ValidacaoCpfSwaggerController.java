@@ -1,7 +1,7 @@
 package br.com.votacao.modules.cpf.controller;
 
-import br.com.votacao.modules.cpf.models.CpfRequest;
-import br.com.votacao.modules.cpf.models.CpfResponse;
+import br.com.votacao.modules.cpf.models.request.CpfRequest;
+import br.com.votacao.modules.cpf.models.response.CpfResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

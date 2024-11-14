@@ -1,4 +1,4 @@
-package br.com.votacao.modules.cpf.models;
+package br.com.votacao.modules.cpf.models.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.Parameter;

@@ -1,7 +1,7 @@
 package br.com.votacao.modules.cpf.services.impl;
 
-import br.com.votacao.modules.cpf.models.CpfRequest;
-import br.com.votacao.modules.cpf.models.CpfResponse;
+import br.com.votacao.modules.cpf.models.request.CpfRequest;
+import br.com.votacao.modules.cpf.models.response.CpfResponse;
 import br.com.votacao.modules.cpf.proxy.ValidacaoCpfProxy;
 import br.com.votacao.modules.cpf.proxy.models.enums.StatusValidacaoCpfEnum;
 import br.com.votacao.modules.cpf.proxy.models.response.ValidacaoCpfProxyResponse;
