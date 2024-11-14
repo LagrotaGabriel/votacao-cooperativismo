@@ -14,7 +14,8 @@ RESTful para implementar suas regras de negócio
 - [📋 Pré-requisitos](#pré-requisitos)
 - [✨ Variáveis de ambiente](#variáveis-de-ambiente)
 - [📜 UML](#uml)
-- [↪ Fluxo](#fluxo)
+- [↪ Fluxo](#fluxo-do-usuário)
+- [🔨 Arquitetura](#arquitetura)
 - [🚀 Funcionalidades](#funcionalidades)
 - [📃 Swagger](#swagger)
 - [🐙 Git flow](#git-flow)
@@ -63,7 +64,22 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ![](src/main/resources/docs/uml/UML.png)
 
-## Fluxo
+## Arquitetura
+
+> Optei por quebrar os pacotes da aplicação em módulos (Sem utilização de monolito modular, somente a critério de organização)
+
+> Para maior organização e separação das funcionalidades, dividi cada módulo por Actions. Como podemos ver no 
+> exemplo abaixo, actions são as funcionalidades que o domínio deverá desempenhar, de forma granular
+
+![](src/main/resources/docs/fluxo/arquitetura.png)
+
+> Como podemos presenciar no exemplo acima, a aplicação está extremamente desamarrada e tanto seus módulos quanto 
+> seus actions desempenham papeís únicos dentro do seu contexto.
+ 
+> Ao meu ver, uma das maiores vantagens disso seria uma aplicação pronta para escalar e receber mais módulos e 
+> funcionalidades gradualmente
+
+## Fluxo do usuário
 
 > O fluxo da aplicação se trata basicamente do caminho que o usuário deverá trilhar para usufruir das 
 > funcionalidades da API
