@@ -20,7 +20,7 @@ public class SwaggerConfiguration {
     public GroupedOpenApi grupoAssociado() {
         return GroupedOpenApi.builder()
                 .group("associados")
-                .displayName("ASSOCIADOS")
+                .displayName("Associados")
                 .pathsToMatch("/api/srv-votacao/v1/associado/**")
                 .build();
     }
@@ -29,7 +29,7 @@ public class SwaggerConfiguration {
     public GroupedOpenApi grupoPauta() {
         return GroupedOpenApi.builder()
                 .group("pautas")
-                .displayName("PAUTAS")
+                .displayName("Pautas")
                 .pathsToMatch("/api/srv-votacao/v1/pauta/**")
                 .build();
     }
@@ -38,8 +38,17 @@ public class SwaggerConfiguration {
     public GroupedOpenApi grupoVotacao() {
         return GroupedOpenApi.builder()
                 .group("votacoes")
-                .displayName("VOTACOES")
+                .displayName("Votações")
                 .pathsToMatch("/api/srv-votacao/v1/voto/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi grupoCpf() {
+        return GroupedOpenApi.builder()
+                .group("cpfs")
+                .displayName("CPF's")
+                .pathsToMatch("/api/srv-votacao/v1/cpf/**")
                 .build();
     }
 }
