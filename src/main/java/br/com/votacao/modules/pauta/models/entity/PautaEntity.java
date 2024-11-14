@@ -1,4 +1,4 @@
-package br.com.votacao.modules.pauta.entity;
+package br.com.votacao.modules.pauta.models.entity;
 
 import br.com.votacao.modules.voto.entity.VotoEntity;
 import jakarta.persistence.*;

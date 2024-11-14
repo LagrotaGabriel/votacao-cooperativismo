@@ -3,9 +3,9 @@ package br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.i
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.ItemPautaPageResponse;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.PautaPageResponse;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.VotosPautaPageResponse;
-import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.enums.StatusPautaEnum;
+import br.com.votacao.modules.pauta.models.enums.StatusPautaEnum;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.ObtencaoPaginadaPautaMapperService;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.voto.entity.VotoEntity;
 import br.com.votacao.modules.voto.entity.enums.TipoVotoEnum;
 import lombok.extern.slf4j.Slf4j;

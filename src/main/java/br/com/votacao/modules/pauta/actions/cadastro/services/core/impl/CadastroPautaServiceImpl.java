@@ -4,7 +4,7 @@ import br.com.votacao.modules.pauta.actions.cadastro.dto.request.CadastroPautaRe
 import br.com.votacao.modules.pauta.actions.cadastro.dto.response.CadastroPautaResponse;
 import br.com.votacao.modules.pauta.actions.cadastro.services.core.CadastroPautaService;
 import br.com.votacao.modules.pauta.actions.cadastro.services.mapper.CadastroPautaMapperService;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.repository.PautaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

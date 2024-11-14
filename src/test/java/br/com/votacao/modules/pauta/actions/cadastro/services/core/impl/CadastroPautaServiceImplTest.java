@@ -5,7 +5,7 @@ import br.com.votacao.modules.pauta.actions.cadastro.dto.request.mock.CadastroPa
 import br.com.votacao.modules.pauta.actions.cadastro.dto.response.CadastroPautaResponse;
 import br.com.votacao.modules.pauta.actions.cadastro.dto.response.mock.CadastroPautaResponseMock;
 import br.com.votacao.modules.pauta.actions.cadastro.services.mapper.CadastroPautaMapperService;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
 import br.com.votacao.modules.pauta.repository.PautaRepository;
 import org.junit.jupiter.api.Assertions;

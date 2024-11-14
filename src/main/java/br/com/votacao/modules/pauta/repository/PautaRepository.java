@@ -1,6 +1,6 @@
 package br.com.votacao.modules.pauta.repository;
 
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

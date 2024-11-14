@@ -1,6 +1,7 @@
 package br.com.votacao.modules.pauta.entity;
 
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

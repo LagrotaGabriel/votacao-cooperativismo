@@ -1,6 +1,6 @@
 package br.com.votacao.modules.pauta.entity.mock;
 
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

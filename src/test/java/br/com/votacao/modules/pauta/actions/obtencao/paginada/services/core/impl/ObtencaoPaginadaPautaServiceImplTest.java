@@ -3,7 +3,7 @@ package br.com.votacao.modules.pauta.actions.obtencao.paginada.services.core.imp
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.PautaPageResponse;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.mock.PautaPageResponseMock;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.ObtencaoPaginadaPautaMapperService;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
 import br.com.votacao.modules.pauta.repository.PautaRepository;
 import org.junit.jupiter.api.Assertions;
