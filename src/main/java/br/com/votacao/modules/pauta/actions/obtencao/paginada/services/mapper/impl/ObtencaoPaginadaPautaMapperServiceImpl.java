@@ -2,11 +2,9 @@ package br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.i
 
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.ItemPautaPageResponse;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.PautaPageResponse;
-import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.VotosPautaPageResponse;
-import br.com.votacao.modules.pauta.models.enums.StatusPautaEnum;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.ObtencaoPaginadaPautaMapperService;
 import br.com.votacao.modules.pauta.models.entity.PautaEntity;
-import br.com.votacao.modules.voto.entity.VotoEntity;
+import br.com.votacao.modules.pauta.models.enums.StatusPautaEnum;
 import br.com.votacao.modules.voto.entity.enums.TipoVotoEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -81,39 +79,22 @@ public class ObtencaoPaginadaPautaMapperServiceImpl implements ObtencaoPaginadaP
 
             ItemPautaPageResponse itemPautaPageResponse =
                     new ItemPautaPageResponse(
+                            pautaEntity.getId(),
                             pautaEntity.getTitulo(),
                             pautaEntity.getDescricao(),
                             (pautaEntity.getDataHoraExpiracao().isBefore(LocalDateTime.now()))
                                     ? StatusPautaEnum.ENCERRADA.getDesc()
                                     : StatusPautaEnum.EM_ABERTO.getDesc(),
+                            pautaEntity.getVotos().size(),
                             quantidadeVotosSim,
                             quantidadeVotosNao,
                             pautaEntity.getDataHoraCriacao(),
-                            pautaEntity.getDataHoraExpiracao(),
-                            geraListaDeVotos(pautaEntity.getVotos())
+                            pautaEntity.getDataHoraExpiracao()
                     );
 
             itemPautaPageResponseList.add(itemPautaPageResponse);
         }
 
         return itemPautaPageResponseList;
-    }
-
-    public List<VotosPautaPageResponse> geraListaDeVotos(List<VotoEntity> votos) {
-
-        List<VotosPautaPageResponse> votosPautaPageResponseList = new ArrayList<>();
-
-        for (VotoEntity votoEntity : votos) {
-            VotosPautaPageResponse votosPautaPageResponse =
-                    new VotosPautaPageResponse(
-                            votoEntity.getTipoVoto().getDesc(),
-                            votoEntity.getDataHoraVoto(),
-                            votoEntity.getAssociado().getNome()
-                    );
-
-            votosPautaPageResponseList.add(votosPautaPageResponse);
-        }
-
-        return votosPautaPageResponseList;
     }
 }
