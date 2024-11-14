@@ -44,13 +44,12 @@ class ObtencaoPaginadaPautaControllerTest {
                 );
 
         Assertions.assertEquals(
-                "<200 OK OK,PautaPageResponse[conteudoPaginacao=[ItemPautaPageResponse[titulo=Legalização do " +
-                        "@Data, descricao=Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API, " +
-                        "status=Encerrada, quantidadeVotosSim=2, quantidadesVotosNao=1, " +
-                        "dataHoraCriacao=2024-11-13T23:56, dataHoraExpiracao=2024-11-13T23:57, " +
-                        "votos=[VotosPautaPageResponse[tipoVoto=Sim, dataHoraVoto=2024-11-13T23:53, " +
-                        "nomeAssociado=Gabriel Lagrota]]]], numberOfElements=7, pageNumber=0, pageSize=10, size=10, " +
-                        "totalElements=7, totalPages=1],[]>",
+                "<200 OK OK,PautaPageResponse[conteudoPaginacao=[" +
+                        "ItemPautaPageResponse[id=f2ac6801-6cad-4408-b002-31d00314f493, titulo=Legalização do @Data, " +
+                        "descricao=Nessa pauta votaremos se o @Data deverá ou não ser legalizado nesta API, " +
+                        "status=Encerrada, quantidadeDeVotos=3, quantidadeVotosSim=2, quantidadesVotosNao=1, " +
+                        "dataHoraCriacao=2024-11-13T23:56, dataHoraExpiracao=2024-11-13T23:57]], numberOfElements=7, " +
+                        "pageNumber=0, pageSize=10, size=10, totalElements=7, totalPages=1],[]>",
                 respostaServico.toString()
         );
 

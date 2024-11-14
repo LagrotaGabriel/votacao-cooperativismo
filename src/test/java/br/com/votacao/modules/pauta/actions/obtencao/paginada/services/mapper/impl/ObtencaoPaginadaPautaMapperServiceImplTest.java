@@ -2,11 +2,8 @@ package br.com.votacao.modules.pauta.actions.obtencao.paginada.services.mapper.i
 
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.ItemPautaPageResponse;
 import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.PautaPageResponse;
-import br.com.votacao.modules.pauta.actions.obtencao.paginada.models.VotosPautaPageResponse;
-import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
-import br.com.votacao.modules.voto.entity.VotoEntity;
-import br.com.votacao.modules.voto.entity.mock.VotoEntityMock;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -68,23 +65,6 @@ class ObtencaoPaginadaPautaMapperServiceImplTest {
 
         Assertions.assertNotNull(
                 itemPautaPageResponseList.toString()
-        );
-    }
-
-    @Test
-    @DisplayName("Deve testar geração de lista de votos")
-    void deveTestarGeracaoDeListaDeVotos() {
-
-        List<VotoEntity> votoEntityList = VotoEntityMock.builder().buildList();
-
-        List<VotosPautaPageResponse> votosPautaPageResponseList =
-                obtencaoPaginadaPautaMapperServiceImpl.geraListaDeVotos(
-                        votoEntityList
-                );
-
-        Assertions.assertEquals(
-                "[VotosPautaPageResponse[tipoVoto=Sim, dataHoraVoto=2024-11-13T15:26, nomeAssociado=Gabriel Lagrota]]",
-                votosPautaPageResponseList.toString()
         );
     }
 }
