@@ -3,7 +3,7 @@ package br.com.votacao.modules.pauta.actions.cadastro.services.mapper.impl;
 import br.com.votacao.modules.pauta.actions.cadastro.dto.request.CadastroPautaRequest;
 import br.com.votacao.modules.pauta.actions.cadastro.dto.request.mock.CadastroPautaRequestMock;
 import br.com.votacao.modules.pauta.actions.cadastro.dto.response.CadastroPautaResponse;
-import br.com.votacao.modules.pauta.entity.PautaEntity;
+import br.com.votacao.modules.pauta.models.entity.PautaEntity;
 import br.com.votacao.modules.pauta.entity.mock.PautaEntityMock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

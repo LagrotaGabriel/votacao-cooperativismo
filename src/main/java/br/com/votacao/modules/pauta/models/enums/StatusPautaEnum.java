@@ -1,4 +1,4 @@
-package br.com.votacao.modules.pauta.actions.obtencao.paginada.models.enums;
+package br.com.votacao.modules.pauta.models.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
