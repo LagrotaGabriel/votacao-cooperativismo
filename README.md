@@ -17,6 +17,7 @@ RESTful para implementar suas regras de negócio
 - [↪ Fluxo](#fluxo)
 - [🚀 Funcionalidades](#funcionalidades)
 - [📃 Swagger](#swagger)
+- [🐙 Git flow](#git-flow)
 - [💻 Tecnologias utilizadas](#tecnologias-utilizadas)
 - [⌛ Funcionalidades futuras](#Implementações-futuras)
 - [▶ Execução local](#Execução-local)
@@ -93,6 +94,17 @@ associados previamente cadastrados;
 
 > Para acessar o swagger basta acessar o endpoint `/documentacao-api` e navegar entre os tópicos Associados, CPF's, 
 > Pautas e votações
+
+## Git flow
+
+> No projeto foram utilizadas as melhores práticas de versionamento GIT, com commits padronizados e mensagens bem definidas.
+
+> OBS: Optei por não remover as branches das features para que sirvam como comprovação de conhecimento. Mas entendo 
+> que em um cenário real, após testada, e aprovada, ela deveria ser removida para maior organização das branches.
+
+![](src/main/resources/docs/fluxo/git.png)
+
+> Cada tarefa desenvolvida é linkada a uma Issue do Github Projects, que pode ser visualizado [Aqui](https://github.com/users/LagrotaGabriel/projects/5/views/1)
 
 ## Tecnologias Utilizadas
 
